@@ -36,13 +36,9 @@ class AtadosAPI():
             return ('400 Bad format body; Except: ' + str(e))
     
     def get_volunteers(self):
-        json_volunteers = dumps([v.__dict__ for v in self.volunteers], ensure_ascii=False)
+        json_volunteers = dumps([v.to_dict() for v in self.volunteers], ensure_ascii=False)
         return (json_volunteers)
     
     def get_social_causes(self):
-        json_social_causes = dumps([v.__dict__ for v in self.social_causes], ensure_ascii=False)
+        json_social_causes = dumps([v.to_dict() for v in self.social_causes], ensure_ascii=False)
         return (json_social_causes)
-
-if __name__ == '__main__':
-    app = AtadosAPI().app
-    app.run()

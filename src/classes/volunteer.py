@@ -31,5 +31,8 @@ class Volunteer():
     def set_city(self, new_city: str):
         self.__city = new_city
 
+    def to_dict(self) -> str:
+        return({'name':self.__name, 'surname':self.__surname, 'neighborhood':self.__neighborhood, 'city':self.__city})
+
     def __str__(self) -> str:
         print('Name=' + self.__name + ' Surname=' + self.__surname + 'Neighborhood=' + self.__neighborhood + 'City=' + self.__city)

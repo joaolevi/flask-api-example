@@ -31,5 +31,8 @@ class SocialCause():
     def set_description(self, new_description: str):
         self.__description = new_description
 
+    def to_dict(self):
+        return({'name':self.__name, 'institution_name':self.__institution_name, 'adress':self.__adress, 'description':self.__description})
+
     def __str__(self) -> str:
         print('Name=' + self.__name + ' Institution_name=' + self.__institution_name + 'Adress=' + self.__adress + 'Description=' + self.__description)
