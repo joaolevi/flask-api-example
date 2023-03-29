@@ -1,6 +1,15 @@
-version: "3"
+version: '3'
 
 services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+
   app:
     build: .
     ports:
@@ -8,21 +17,4 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URI: postgresql://postgres:postgres@db:5432/mydb
-    command: ["python", "app.py"]
-
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: mydb
-
-  test:
-    build: .
-    depends_on:
-      - db
-    environment:
-      DATABASE_URI: postgresql://postgres:postgres@db:5432/mydb
-    command: ["python", "-m", "unittest", "discover", "-s", "."]
+      DATABASE_URL: postgresql://postgres:1234@db/postgres

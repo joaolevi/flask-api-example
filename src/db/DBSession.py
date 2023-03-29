@@ -19,8 +19,8 @@ class SocialCauseDB(Base):
     id               = Column(Integer, primary_key=True)
     name             = Column(String(50))
     institution_name = Column(String(50))
-    adress           = Column(String(50))
-    description      = Column(String(50))
+    adress           = Column(String(120))
+    description      = Column(String(200))
 
 class DBSession():
     def __init__(self):
@@ -28,13 +28,14 @@ class DBSession():
         self.engine = None
     
     def start_db_session(self):
-        self.engine = create_engine('postgresql://postgres:postgres@localhost:5432/postgres')
+        self.engine = create_engine('postgresql://postgres:1234@localhost:5432/postgres')
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
 
         Base.metadata.create_all(self.engine)
 
     def save_to_db(self, data):
+        print('Entrou aqui nessa merda')
         if (self.session.connection()):
             self.session.add(data)
             self.session.commit()

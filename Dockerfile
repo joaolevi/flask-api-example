@@ -1,13 +1,15 @@
-FROM python:3.9-slim-buster
+FROM python:3.8-slim-buster
 
 WORKDIR /app
 
+COPY . /app
+
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc \
+    && pip install psycopg2
+
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
 EXPOSE 5000
 
-COPY requirements.txt requirements.txt
-
-RUN pip3 install -r requirements.txt
-
-COPY . .
-
-CMD [ "python3", "app.py" ]
+CMD ["python", "app.py"]

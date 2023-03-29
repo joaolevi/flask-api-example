@@ -1,5 +1,6 @@
 pyinstaller
 flask
+flask_sqlalchemy
 sqlalchemy
 sqlalchemy_utils
 psycopg2
