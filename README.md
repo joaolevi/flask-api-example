@@ -6,7 +6,7 @@ Para resolver esse desafio eu separei o código em duas branchs. Uma contém um 
 
 ## Modo simples:
 
-O modo simples pode ser rodado na branch main a partir do docker no repositório com o comando `docker build -t atadosapi .` e na sequência `docker run -dp 5000:5000 --name atadosapi atados api`. Isso irá criar uma imagem docker e por fim iniciar um container que conterá a imagem da API rodando.
+O modo simples pode ser rodado na branch main a partir do docker no repositório com o comando `docker build -t atadosapi .` e na sequência `docker run -dp 5000:5000 --name atadosapi atadosapi`. Isso irá criar uma imagem docker e por fim iniciar um container que conterá a imagem da API rodando.
 
 Para requisições eu criei uma pequena collection no Postman com apenas 4 requisições (2 GET e 2 POST) que vou enviar por email.
 
