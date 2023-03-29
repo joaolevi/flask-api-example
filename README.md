@@ -8,9 +8,7 @@ Para resolver esse desafio eu separei o código em duas branchs. Uma contém um 
 
 O modo simples pode ser rodado na branch main a partir do docker no repositório com o comando `docker build -t atadosapi .` e na sequência `docker run -dp 5000:5000 --name atadosapi atados api`. Isso irá criar uma imagem docker e por fim iniciar um container que conterá a imagem da API rodando.
 
-Para requisições eu criei uma pequena collection no Postman com apenas 4 requisições (2 GET e 2 POST). 
-
-https://api.postman.com/collections/25338713-43954dda-38e4-4e63-837a-459492b4ec6f?access_key=PMAT-01GWNSNFMZWGMRYJZJ6T00G74Q
+Para requisições eu criei uma pequena collection no Postman com apenas 4 requisições (2 GET e 2 POST) que vou enviar por email.
 
 Caso não consigam acessar, a uri para a requisição é a `localhost:5000` e os endpoints 
 
@@ -23,7 +21,7 @@ Caso não consigam acessar, a uri para a requisição é a `localhost:5000` e os
 
 Foram feitos 4 testes, um para cada endpoint. Os testes estão no arquivo `test_app.py` e podem rodar apenas com o comando `python test_app.py`.
 
-## Modo Completo:
+## Modo Completo (branch postgres)
 
 Tentei fazer esse modo com o docker-compose. Infelizmente ao rodar a API e o Banco de Dados, tive problemas de conexão ao tentar criar as tabelas. A única solução que encontrei foi a de rodar o banco de dados em um container e rodar manualmente a API. Dessa forma, basta-se usar o comando `docker-compose up -d` para iniciar o banco de dados (esse comando vai cirar uma API também, mas ela vai exitar quando não conseguir criar as tabelas). Na sequência, pode-se iniciar a API com o comando `python app.py`. A partir desse momento será possível enviar requisições para a API adicionando e coletando as informações de volta do PostgreSQL. 
 
