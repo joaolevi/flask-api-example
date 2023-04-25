@@ -1,8 +1,4 @@
-# Desafio Atados
-
-Fala, pessoal do Atados! 
-
-Para resolver esse desafio eu separei o código em duas branchs. Uma contém um modo mais simples de armazenamento dos dados recebidos através das requisições. Nessa branch, os valores são salvos na memória em listas. No segundo caso, na outra branch, os valores estão sendo salvos num banco de dados PostgreSQL. Cada vez que a API recebe uma requisição POST nós salvamos no banco que estará rodando num container docker. Para cada requisição GET nós coletamos do banco os dados e devolvemos.
+# Flask API Example
 
 ## Modo simples:
 
